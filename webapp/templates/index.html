@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sepsis Prediction</title>
+   <!-- background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); -->
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      background: 
+      linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), 
+      url("{{ url_for('static', filename='images/background_image.webp') }}") no-repeat center center fixed;
+      background-size: cover;
+    }
+    .card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+      box-sizing: border-box;
+      animation: fadeIn 1s ease-in-out;
+      text-align: center;
+    }
+    .card img {
+      max-width: 120px;
+      margin-bottom: 1rem;
+    }
+    .card h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    .input-group {
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #555;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    .btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: #2575fc;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #1a5ed8;
+    }
+    .result {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="{{ url_for('static', filename='images/FL_Image.png') }}" alt="Sepsis Logo">
+
+    <!-- <img src="C:\Imports\FL\GitHub\FL_Image.png" alt="Sepsis Logo"> -->
+    <h2>Sepsis Prediction using Federated Learning</h2>
+    <form method="POST">
+      <div class="input-group">
+        <label for="feature1">Age (In Years)</label>
+        <input type="number" id="feature1" name="feature1" placeholder="Enter age" required />
+      </div>
+      <div class="input-group">
+        <label for="feature2">Sex (0 Male / 1 Female)</label>
+        <input type="number" id="feature2" name="feature2" placeholder="Enter sex" required />
+      </div>
+      <div class="input-group">
+        <label for="feature3">Episode Number</label>
+        <input type="number" id="feature3" name="feature3" placeholder="Enter episode number" required />
+      </div>
+      <button class="btn" type="submit">Predict</button>
+    </form>
+    <div class="result">
+      {{ prediction if prediction else "Sepsis Prediction: --" }}
+    </div>
+  </div>
+</body>
+</html>
+
+

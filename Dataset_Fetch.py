@@ -10,10 +10,11 @@ y = dataset.data.targets
 
 # Show the first few rows
 print("Features:")
-print(X.head())
+print(X.head(100))
 
 print("\nTarget:")
-print(y.head())
+print(y.head(100))
+print(X['age_years'])
 
 # Metadata (optional)
 print("\nDataset Metadata:")
