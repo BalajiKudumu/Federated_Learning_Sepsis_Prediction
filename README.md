@@ -60,7 +60,6 @@ federated_sepsis/
 ├── server.py            # Federated learning server
 ├── client1.py           # Client 1 code
 ├── client2.py           # Client 2 code
-├── utils.py             # Shared utility functions
 ├── requirements.txt     # Python dependencies
 ├── README.md            # Project documentation
 └── dataset/             # UCI Sepsis dataset (optional if fetched dynamically)
